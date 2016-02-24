@@ -62,6 +62,29 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LTJ-wC-dAn">
                                 <rect key="frame" x="-5" y="0.0" width="605" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="repoCell" textLabel="Wbm-9I-OEB" style="IBUITableViewCellStyleDefault" id="Ovy-ic-1AP">
+                                        <rect key="frame" x="0.0" y="92" width="605" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ovy-ic-1AP" id="OXU-Bd-unE">
+                                            <rect key="frame" x="0.0" y="0.0" width="605" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wbm-9I-OEB">
+                                                    <rect key="frame" x="15" y="0.0" width="575" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Eto-zK-1QI" id="4Ai-fE-wiT"/>
+                                    <outlet property="delegate" destination="Eto-zK-1QI" id="9Ze-WS-iTt"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -73,6 +96,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Repositories" id="7LU-aS-1uI"/>
+                    <connections>
+                        <outlet property="repoTableVIew" destination="LTJ-wC-dAn" id="SZg-ai-r0H"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9N2-t4-w1L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
