@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Eto-zK-1QI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="FA0-le-g7Q">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -45,9 +45,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="410" y="265"/>
+            <point key="canvasLocation" x="2034" y="265"/>
         </scene>
-        <!--Home View Controller-->
+        <!--My Repositories-->
         <scene sceneID="BxY-ct-U25">
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" id="Eto-zK-1QI" customClass="HomeViewController" customModule="GoGoGithub" customModuleProvider="target" sceneMemberID="viewController">
@@ -59,24 +59,101 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gk4-xn-0WM">
-                                <rect key="frame" x="239" y="285" width="122" height="30"/>
-                                <state key="normal" title="Print Repositories"/>
-                                <connections>
-                                    <action selector="printRepositoryButton:" destination="Eto-zK-1QI" eventType="touchUpInside" id="3Rx-fj-4bq"/>
-                                </connections>
-                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LTJ-wC-dAn">
+                                <rect key="frame" x="-5" y="0.0" width="605" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gk4-xn-0WM" firstAttribute="centerX" secondItem="Ml8-QP-t7g" secondAttribute="centerX" id="7Qb-p6-X6D"/>
-                            <constraint firstItem="gk4-xn-0WM" firstAttribute="centerY" secondItem="Ml8-QP-t7g" secondAttribute="centerY" id="8BF-ob-aS6"/>
+                            <constraint firstItem="U5D-hg-q5U" firstAttribute="top" secondItem="LTJ-wC-dAn" secondAttribute="bottom" constant="-49" id="Xs7-7Q-4we"/>
+                            <constraint firstItem="LTJ-wC-dAn" firstAttribute="leading" secondItem="Ml8-QP-t7g" secondAttribute="leading" constant="-5" id="t9A-v2-riW"/>
+                            <constraint firstAttribute="trailing" secondItem="LTJ-wC-dAn" secondAttribute="trailing" id="urn-gT-gYr"/>
+                            <constraint firstItem="LTJ-wC-dAn" firstAttribute="top" secondItem="ptb-BW-I5K" secondAttribute="bottom" constant="-64" id="xqt-UG-yhl"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="My Repositories" id="7LU-aS-1uI"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9N2-t4-w1L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1345" y="265"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="7u3-KK-eUZ">
+            <objects>
+                <viewController id="QiD-Fo-Vd7" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KQd-Ri-uN0"/>
+                        <viewControllerLayoutGuide type="bottom" id="ppe-i5-Os0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0B0-yg-v2p">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Search" id="8RF-Sc-YFV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F9j-Tp-zT3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="533" y="991"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="NNV-sI-hTs">
+            <objects>
+                <viewController id="Xv9-4Z-xfT" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qMP-dl-dD5"/>
+                        <viewControllerLayoutGuide type="bottom" id="dJ8-rs-ZW9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rBE-eG-P3P" customClass="ProfileViewController">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Profile" id="2p1-GU-8Kz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fkC-nF-l8O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-279" y="983"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="TqR-cc-Qzo">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="FA0-le-g7Q" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="9RG-QR-saX">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Jz9-DJ-4AC" kind="relationship" relationship="viewControllers" id="Gga-yo-YnV"/>
+                        <segue destination="Xv9-4Z-xfT" kind="relationship" relationship="viewControllers" id="C0f-iw-0dq"/>
+                        <segue destination="QiD-Fo-Vd7" kind="relationship" relationship="viewControllers" id="FlF-Da-QOa"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8DX-6D-6Mt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="-279" y="265"/>
+        </scene>
+        <!--Repos-->
+        <scene sceneID="jH8-XL-7ZJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jz9-DJ-4AC" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Repos" id="jZz-6M-cL7"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="J5O-a9-Wd6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Eto-zK-1QI" kind="relationship" relationship="rootViewController" id="Bxd-4H-yIC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2t0-cJ-1b7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="533" y="265"/>
         </scene>
     </scenes>
     <resources>
