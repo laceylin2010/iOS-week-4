@@ -35,7 +35,7 @@ extension Repository
         }
     }
     
-    class func searchInfo(results: String, completion: (success: Bool, repositories: [Repository]) -> ())
+    class func searchInfo(results: String, completion:(success: Bool, repositories: [Repository]) -> ())
     {
         API.shared.enqueue(GETSearch(userSearch: results)) { (success, json) -> () in
             var repositories = [Repository]()

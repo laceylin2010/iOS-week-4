@@ -31,6 +31,12 @@ class API
                             
                         }
                         if let json = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as? [String : AnyObject] {
+                            
+                            if let items = json["items"] as? [[String: AnyObject]] {
+                                completion(success: true, json: items)
+                            } else {
+                                completion(success: true, json: [json])
+                            }
                            
                         }
                     } catch _ {}
