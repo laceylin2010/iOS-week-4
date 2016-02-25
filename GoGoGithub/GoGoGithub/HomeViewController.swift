@@ -13,7 +13,11 @@ class HomeViewController: UIViewController, Identity, UITableViewDelegate, UITab
     
     @IBOutlet weak var repoTableVIew: UITableView!
     
-    var repoArray = [Repository]()
+    var repoArray = [Repository]() {
+        didSet {
+            self.repoTableVIew.reloadData()
+        }
+    }
     
     
     class func id() -> String
@@ -23,6 +27,7 @@ class HomeViewController: UIViewController, Identity, UITableViewDelegate, UITab
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
      
     }
     
@@ -48,7 +53,9 @@ class HomeViewController: UIViewController, Identity, UITableViewDelegate, UITab
         let cell = tableView.dequeueReusableCellWithIdentifier("repoCell", forIndexPath: indexPath)
         let repoData = self.repoArray[indexPath.row]
         cell.textLabel?.text = repoData.name
+        cell.detailTextLabel?.text = repoData.owner.reposUrl
         
+      
         
         return cell
         

@@ -39,5 +39,15 @@ class API
         }.resume()
     }
     
+    func getImage(urlString: String, completion: (image: UIImage) -> ())
+    {
+        guard let url = NSURL(string: urlString) else { return }
+        guard let data = NSData(contentsOfURL: url) else { return }
+        guard let image = UIImage(data: data) else { return }
+        
+        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+            completion(image: image)
+        }
+    }
     
 }

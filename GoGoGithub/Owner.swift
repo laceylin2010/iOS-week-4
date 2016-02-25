@@ -12,6 +12,7 @@ class Owner
 {
     let name: String
     let reposUrl: String
+
     
     init(reposUrl: String, name: String)
     {

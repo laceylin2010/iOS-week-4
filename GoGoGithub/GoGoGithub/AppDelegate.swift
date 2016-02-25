@@ -27,6 +27,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     {
         GithubOAuth.shared.tokenRequestWithCallbackURL(url, options: SaveOptions.UserDefaults) { (success) -> () in
             if success {
+                guard let tabBarController = self.window?.rootViewController as? UITabBarController else
+                { fatalError("rootView Controller has been changed") }
+                guard let navigationViewController = tabBarController.viewControllers?.first as? UINavigationController else { fatalError("First tab does not have a navigation controller") }
+                guard let homeViewController = navigationViewController.viewControllers.first as? HomeViewController else { fatalError("Order of view controllers have changed") }
+            
+                homeViewController.displayRepos()
+                
                 guard let oauthViewController = self.oauthViewController else { return }
                 UIView.animateWithDuration(0.3, animations: { () -> Void in
                     oauthViewController.view.alpha = 0.0
@@ -50,14 +57,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     
     func presentOAuthViewController()
     {
-        guard let homeViewController = self.window?.rootViewController as? HomeViewController else { fatalError("root view controller changes") }
-        guard let storyboard = homeViewController.storyboard else { fatalError("How is it that this view controller does not have storyboard?") }
+        guard let tabBarController = self.window?.rootViewController as? UITabBarController else { fatalError("root view controller changes") }
+        guard let storyboard = tabBarController.storyboard else { fatalError("How is it that this view controller does not have storyboard?") }
         guard let oauthViewController = storyboard.instantiateViewControllerWithIdentifier(OAuthViewController.id()) as? OAuthViewController else { fatalError("Wrong View controller. Fix this please") }
         
-        homeViewController.addChildViewController(oauthViewController)
-        homeViewController.view.addSubview(oauthViewController.view)
+        tabBarController.addChildViewController(oauthViewController)
+        tabBarController.view.addSubview(oauthViewController.view)
         
-        oauthViewController.didMoveToParentViewController(homeViewController)
+        oauthViewController.didMoveToParentViewController(tabBarController)
         
         self.oauthViewController = oauthViewController
     }

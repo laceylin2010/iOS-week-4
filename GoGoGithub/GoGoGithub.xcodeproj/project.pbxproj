@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF3DD1F51C7E781800E960E2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3DD1F41C7E781800E960E2 /* ProfileViewController.swift */; };
+		AF3DD1F71C7E880B00E960E2 /* GETUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3DD1F61C7E880B00E960E2 /* GETUser.swift */; };
+		AF3DD1F91C7E890900E960E2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3DD1F81C7E890900E960E2 /* User.swift */; };
+		AF67F0B11C7EC08A007B5EA5 /* SearchBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF67F0B01C7EC08A007B5EA5 /* SearchBarViewController.swift */; };
+		AF67F0B31C7EC2D6007B5EA5 /* GETSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF67F0B21C7EC2D6007B5EA5 /* GETSearch.swift */; };
+		AF67F0B51C7ECDDE007B5EA5 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF67F0B41C7ECDDE007B5EA5 /* PostViewController.swift */; };
+		AF67F0B71C7ECE7D007B5EA5 /* POSTRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF67F0B61C7ECE7D007B5EA5 /* POSTRepo.swift */; };
 		AFC9C5471C7CE9E200CDF78F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC9C5461C7CE9E200CDF78F /* HomeViewController.swift */; };
 		AFC9C5491C7CEA0D00CDF78F /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC9C5481C7CEA0D00CDF78F /* Identity.swift */; };
 		AFC9C54F1C7CEF3000CDF78F /* GGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC9C54E1C7CEF3000CDF78F /* GGButton.swift */; };
@@ -38,6 +45,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AF3DD1F41C7E781800E960E2 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		AF3DD1F61C7E880B00E960E2 /* GETUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GETUser.swift; sourceTree = "<group>"; };
+		AF3DD1F81C7E890900E960E2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		AF67F0B01C7EC08A007B5EA5 /* SearchBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarViewController.swift; sourceTree = "<group>"; };
+		AF67F0B21C7EC2D6007B5EA5 /* GETSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GETSearch.swift; sourceTree = "<group>"; };
+		AF67F0B41C7ECDDE007B5EA5 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		AF67F0B61C7ECE7D007B5EA5 /* POSTRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = POSTRepo.swift; path = ../POSTRepo.swift; sourceTree = "<group>"; };
 		AFC9C5461C7CE9E200CDF78F /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		AFC9C5481C7CEA0D00CDF78F /* Identity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identity.swift; sourceTree = "<group>"; };
 		AFC9C54E1C7CEF3000CDF78F /* GGButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GGButton.swift; path = ../GGButton.swift; sourceTree = "<group>"; };
@@ -104,8 +118,10 @@
 				AFC9C55A1C7D110100CDF78F /* Repository.swift */,
 				AFC9C55F1C7D141900CDF78F /* ModelAdditions.swift */,
 				AFC9C55D1C7D118F00CDF78F /* Owner.swift */,
+				AF3DD1F81C7E890900E960E2 /* User.swift */,
 			);
 			name = Model;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		AFFC2C3F1C7B9C40003ADE9B = {
@@ -114,7 +130,6 @@
 				AFFC2C4A1C7B9C40003ADE9B /* GoGoGithub */,
 				AFFC2C5F1C7B9C40003ADE9B /* GoGoGithubTests */,
 				AFFC2C491C7B9C40003ADE9B /* Products */,
-				AFC9C55C1C7D110600CDF78F /* Model */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,6 +149,7 @@
 				AFC9C5561C7D04F200CDF78F /* Additions.swift */,
 				AFC9C54D1C7CEEE000CDF78F /* View */,
 				AFC9C54A1C7CEA1600CDF78F /* Protocols */,
+				AFC9C55C1C7D110600CDF78F /* Model */,
 				AFFC2C6E1C7BA4D3003ADE9B /* Controllers */,
 				AFFC2C6D1C7B9DBA003ADE9B /* API */,
 				AFFC2C521C7B9C40003ADE9B /* Assets.xcassets */,
@@ -155,10 +171,13 @@
 		AFFC2C6D1C7B9DBA003ADE9B /* API */ = {
 			isa = PBXGroup;
 			children = (
+				AF67F0B61C7ECE7D007B5EA5 /* POSTRepo.swift */,
 				AFFC2C6B1C7B9DB7003ADE9B /* GithubOAuth.swift */,
 				AFC9C5521C7CFC8C00CDF78F /* APIRequest.swift */,
 				AFC9C5581C7D0B4A00CDF78F /* API.swift */,
+				AF67F0B21C7EC2D6007B5EA5 /* GETSearch.swift */,
 				AFC9C5541C7D039D00CDF78F /* GETRepositoriesRequest.swift */,
+				AF3DD1F61C7E880B00E960E2 /* GETUser.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -166,6 +185,9 @@
 		AFFC2C6E1C7BA4D3003ADE9B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AF67F0B41C7ECDDE007B5EA5 /* PostViewController.swift */,
+				AF67F0B01C7EC08A007B5EA5 /* SearchBarViewController.swift */,
+				AF3DD1F41C7E781800E960E2 /* ProfileViewController.swift */,
 				AFC9C5461C7CE9E200CDF78F /* HomeViewController.swift */,
 				AFFC2C4D1C7B9C40003ADE9B /* OAuthViewController.swift */,
 			);
@@ -277,14 +299,21 @@
 				AFC9C5591C7D0B4A00CDF78F /* API.swift in Sources */,
 				AFFC2C4E1C7B9C40003ADE9B /* OAuthViewController.swift in Sources */,
 				AFC9C5571C7D04F200CDF78F /* Additions.swift in Sources */,
+				AF67F0B51C7ECDDE007B5EA5 /* PostViewController.swift in Sources */,
 				AFFC2C4C1C7B9C40003ADE9B /* AppDelegate.swift in Sources */,
 				AFC9C5551C7D039D00CDF78F /* GETRepositoriesRequest.swift in Sources */,
 				AFC9C5491C7CEA0D00CDF78F /* Identity.swift in Sources */,
+				AF3DD1F91C7E890900E960E2 /* User.swift in Sources */,
+				AF3DD1F71C7E880B00E960E2 /* GETUser.swift in Sources */,
 				AFFC2C6C1C7B9DB7003ADE9B /* GithubOAuth.swift in Sources */,
 				AFC9C5471C7CE9E200CDF78F /* HomeViewController.swift in Sources */,
 				AFC9C5511C7CF11C00CDF78F /* Setup.swift in Sources */,
+				AF67F0B31C7EC2D6007B5EA5 /* GETSearch.swift in Sources */,
 				AFC9C5531C7CFC8C00CDF78F /* APIRequest.swift in Sources */,
 				AFC9C54F1C7CEF3000CDF78F /* GGButton.swift in Sources */,
+				AF67F0B71C7ECE7D007B5EA5 /* POSTRepo.swift in Sources */,
+				AF67F0B11C7EC08A007B5EA5 /* SearchBarViewController.swift in Sources */,
+				AF3DD1F51C7E781800E960E2 /* ProfileViewController.swift in Sources */,
 				AFC9C55B1C7D110100CDF78F /* Repository.swift in Sources */,
 				AFC9C5601C7D141900CDF78F /* ModelAdditions.swift in Sources */,
 			);

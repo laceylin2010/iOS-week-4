@@ -21,17 +21,13 @@ extension Repository
                 let login = ownerDictionary["login"] as? String ?? kEmptyString
                 let owner = Owner(reposUrl: reposUrl, name: login)
                 
+                
                 let name = eachRepository["name"] as? String ?? kEmptyString
                 
                 let repo = Repository(name: name, owner: owner)
                 
                 repositories.append(repo)
-                
-                // 1. Get owner dictionary from eachRepository
-                // 2. Get reposUrl and login from owner dicitonary
-                // 3. Instantiate your owner object
-                // 4. Instantiate your repository object and pass in your owner
-                // 5. APpend to array of repos.
+
                 
             }
             
@@ -39,10 +35,59 @@ extension Repository
         }
     }
     
-    func description() -> String
+    class func searchInfo(results: String, completion: (success: Bool, repositories: [Repository]) -> ())
     {
-        return self.name
-        
+        API.shared.enqueue(GETSearch(userSearch: results)) { (success, json) -> () in
+            var repositories = [Repository]()
+            
+            for eachRepository in json {
+                guard let ownerDictionary = eachRepository["owner"] as? [String : AnyObject] else { return }
+                let reposUrl = ownerDictionary["repos_url"] as? String ?? kEmptyString
+                let login = ownerDictionary["login"] as? String ?? kEmptyString
+                let owner = Owner(reposUrl: reposUrl, name: login)
+                
+                
+                let name = eachRepository["name"] as? String ?? kEmptyString
+                
+                let repo = Repository(name: name, owner: owner)
+                
+                repositories.append(repo)
+                
+                
+            }
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock { completion(success: true, repositories: repositories) }
+        }
+    }
+}
+
+
+extension User
+{
+    class func update(completion: (success: Bool, user: User?) -> ())
+    {
+        API.shared.enqueue(GETUser()) { (success, json) -> () in
+            var currentUser = [User]()
+            print(json)
+            
+            for eachUser in json {
+                let avatarUrl = eachUser["avatar_url"] as? String ?? kEmptyString
+                let name = eachUser["name"] as? String ?? kEmptyString
+                let createdAt = eachUser["created_at"] as? String ?? kEmptyString
+                
+                currentUser.append(User(name: name, imageUrl: avatarUrl, createdAt: createdAt))
+                
+            }
+            
+            if let user = currentUser.first {
+                
+                NSOperationQueue.mainQueue().addOperationWithBlock { completion(success: true, user: user)
+                    
+                }
+            }
+            
+            
+        }
     }
 }
 

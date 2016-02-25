@@ -26,7 +26,6 @@ enum HTTPMethod: String
 protocol APIRequest
 {
     var httpMethod: HTTPMethod { set get }
-    var headerContentType: MIMEType { set get }
     
     func url() -> String
     func httpHeaders() -> [String: String]?
