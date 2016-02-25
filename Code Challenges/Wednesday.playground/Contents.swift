@@ -2,26 +2,40 @@
 
 import UIKit
 
-func multiple(num:Int) -> Bool
+
+func multipleOfTen(number: Int) -> Bool
 {
-    if num % 10 == 8{
-        return true
-    } else if num % 10 == 9 {
-        return true
-    } else if num % 10 == 1 {
-        return true
-    } else if num % 10 == 2 {
-        return true
-    } else if num % 10 == 0 {
-        return true
-    } else {
+    if number < 0 {
         return false
     }
+    
+    if number % 10 == 0{
+        print(number)
+        return true
+    }
+    
+    return false
 }
 
-multiple(40)
-multiple(20)
-multiple(23)
-multiple(25)
+
+
+
+
+multipleOfTen(10)
+multipleOfTen(5)
+multipleOfTen(20)
+multipleOfTen(17)
+multipleOfTen(-4)
+multipleOfTen(56)
+
+
+
+
+
+
+
+
+
+
 
 
