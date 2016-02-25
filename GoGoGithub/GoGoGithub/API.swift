@@ -28,10 +28,10 @@ class API
                     do  {
                         if let json = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as? [[String : AnyObject]] {
                             completion(success: true, json: json)
-                            print(json)
+                            
                         }
                         if let json = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as? [String : AnyObject] {
-                            print(json)
+                           
                         }
                     } catch _ {}
                 }

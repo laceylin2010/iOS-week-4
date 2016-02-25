@@ -68,7 +68,7 @@ extension User
     {
         API.shared.enqueue(GETUser()) { (success, json) -> () in
             var currentUser = [User]()
-            print(json)
+           
             
             for eachUser in json {
                 let avatarUrl = eachUser["avatar_url"] as? String ?? kEmptyString
