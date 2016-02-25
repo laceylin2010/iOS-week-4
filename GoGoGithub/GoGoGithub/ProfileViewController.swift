@@ -10,12 +10,11 @@ import UIKit
 
 class ProfileViewController: UIViewController
 {
-
-    @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var userLabel: UILabel!
-    @IBOutlet weak var joinedLabel: UILabel!
     
-
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var joinedLabel: UILabel!
+    @IBOutlet weak var userLabel: UILabel!
+    
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(animated)
@@ -43,7 +42,7 @@ class ProfileViewController: UIViewController
                     self.userLabel.text = user.name
                     self.joinedLabel.text = user.createdAt
                     API.shared.getImage(user.imageUrl, completion: { (image) -> () in
-                        self.profileImage.image = image
+                        self.imageView.image = image
                     })
                 }
             }
