@@ -10,7 +10,9 @@ import UIKit
 
 class OwnerSearchViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, Identity,UISearchBarDelegate
 {
-
+    
+    let customAnimation = CustomAnimation(duration: 2.0)
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var ownerSearchBar: UISearchBar!
     
@@ -83,6 +85,11 @@ extension OwnerSearchViewController
             }
         }
         
+    }
+    
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
+    {
+        return self.customAnimation
     }
     
 }
