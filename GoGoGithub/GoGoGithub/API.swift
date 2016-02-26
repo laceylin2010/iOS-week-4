@@ -23,10 +23,7 @@ class API
         let request = NSMutableURLRequest.requestWithAPIRequest(apiRequest)
         
         self.session.dataTaskWithRequest(request) { (data, response, error) -> Void in
-            
-            print(error)
-            print(response)
-            
+  
             if error == nil {
                 if let data = data {
                     do  {

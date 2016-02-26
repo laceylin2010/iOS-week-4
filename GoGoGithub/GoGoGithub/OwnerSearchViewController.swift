@@ -8,12 +8,16 @@
 
 import UIKit
 
-class OwnerSearchViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,UISearchBarDelegate
+class OwnerSearchViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, Identity,UISearchBarDelegate
 {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var ownerSearchBar: UISearchBar!
- 
+    
+    class func id() -> String
+    {
+        return "OwnerSearchViewController"
+    }
     
     var dataSource = [Owner](){
         didSet {
@@ -57,4 +61,28 @@ class OwnerSearchViewController: UIViewController, UICollectionViewDataSource, U
             }
         }
     }
+    
+    
+}
+
+
+extension OwnerSearchViewController
+{
+
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == UserDetailViewController.id() {
+            
+            if let userDetailViewController = segue.destinationViewController as? UserDetailViewController {
+                if let indexPath = self.collectionView.indexPathsForSelectedItems()?.first {
+                    let owner = self.dataSource [indexPath.row]
+                    userDetailViewController.owner = owner
+                }
+                
+            }
+        }
+        
+    }
+    
 }

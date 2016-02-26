@@ -10,15 +10,15 @@ import UIKit
 
 class Owner
 {
-    let name: String
+    let login: String
     let reposUrl: String
     let ownerImageUrl: String
 
-    
-    init(reposUrl: String, name: String, ownerImageUrl: String)
+    init(reposUrl: String, login: String, ownerImageUrl: String)
     {
         self.reposUrl = reposUrl
-        self.name = name
+        self.login = login
         self.ownerImageUrl = ownerImageUrl
+
     }
 }

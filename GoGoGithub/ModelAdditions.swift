@@ -20,8 +20,7 @@ extension Repository
                 let reposUrl = ownerDictionary["repos_url"] as? String ?? kEmptyString
                 let login = ownerDictionary["login"] as? String ?? kEmptyString
                 let ownerImageUrl = ownerDictionary["avatar_url"] as? String ?? kEmptyString
-                let owner = Owner(reposUrl: reposUrl, name: login, ownerImageUrl: ownerImageUrl)
-                
+                let owner = Owner(reposUrl: reposUrl, login: login, ownerImageUrl: ownerImageUrl)
                 
                 let name = eachRepository["name"] as? String ?? kEmptyString
                 
@@ -46,7 +45,33 @@ extension Repository
                 let reposUrl = ownerDictionary["repos_url"] as? String ?? kEmptyString
                 let login = ownerDictionary["login"] as? String ?? kEmptyString
                 let ownerImageUrl = ownerDictionary["avatar_url"] as? String ?? kEmptyString
-                let owner = Owner(reposUrl: reposUrl, name: login, ownerImageUrl: ownerImageUrl)
+                let owner = Owner(reposUrl: reposUrl, login: login, ownerImageUrl: ownerImageUrl)
+                
+                
+                let name = eachRepository["name"] as? String ?? kEmptyString
+                
+                let repo = Repository(name: name, owner: owner)
+                
+                repositories.append(repo)
+                
+                
+            }
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock { completion(success: true, repositories: repositories) }
+        }
+    }
+    
+    class func getReposForUser(username: String, completion: (success: Bool, repositories: [Repository]) -> ())
+    {
+        API.shared.enqueue(GETUserRepos(username: username)) { (success, json) -> () in
+            var repositories = [Repository]()
+            
+            for eachRepository in json {
+                guard let ownerDictionary = eachRepository["owner"] as? [String : AnyObject] else { return }
+                let reposUrl = ownerDictionary["repos_url"] as? String ?? kEmptyString
+                let login = ownerDictionary["login"] as? String ?? kEmptyString
+                let ownerImageUrl = ownerDictionary["avatar_url"] as? String ?? kEmptyString
+                let owner = Owner(reposUrl: reposUrl, login: login, ownerImageUrl: ownerImageUrl)
                 
                 
                 let name = eachRepository["name"] as? String ?? kEmptyString
@@ -102,8 +127,6 @@ extension Owner
     {
         API.shared.enqueue(GETSearchOwner(searchUser: results)) { (success, json) -> () in
             
-            print(json)
-            
             var githubOwners = [Owner]()
             
             for eachOwner in json {
@@ -114,7 +137,7 @@ extension Owner
                 
                 let ownerImageUrl = eachOwner["avatar_url"] as? String ?? kEmptyString
                 
-                let owner = Owner(reposUrl: reposUrl, name: login, ownerImageUrl: ownerImageUrl)
+                let owner = Owner(reposUrl: reposUrl, login: login, ownerImageUrl: ownerImageUrl)
                 
                 githubOwners.append(owner)
                 

@@ -378,7 +378,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="userImage" destination="paX-l3-LBo" id="xxW-bG-9Au"/>
-                                            <segue destination="c1v-Y1-sGb" kind="show" id="Qxk-5p-nCL"/>
+                                            <segue destination="c1v-Y1-sGb" kind="presentation" identifier="UserDetailViewController" id="Md0-06-dGk"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -450,12 +450,21 @@
                                 <rect key="frame" x="0.0" y="262" width="600" height="289"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="userRepoCell" id="Nsk-8V-9s2">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="userRepoCell" textLabel="TKx-cH-uXf" style="IBUITableViewCellStyleDefault" id="Nsk-8V-9s2">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nsk-8V-9s2" id="KDJ-Rb-FQ8">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TKx-cH-uXf">
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -477,13 +486,31 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="cye-jf-Xlw" id="7dQ-qi-a8D"/>
-                        <outlet property="tableVIew" destination="Pb4-3h-wAG" id="jVD-uQ-P8u"/>
                         <outlet property="tableView" destination="Pb4-3h-wAG" id="YnO-Na-w3x"/>
+                        <segue destination="79Q-DW-Xch" kind="show" identifier="WebViewController" id="UxU-rm-HgP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fGC-EK-OES" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="533" y="2467"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="AAi-Lq-Z0j">
+            <objects>
+                <viewController id="79Q-DW-Xch" customClass="WebViewController" customModule="GoGoGithub" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2a3-Np-MfU"/>
+                        <viewControllerLayoutGuide type="bottom" id="huD-y3-Rl9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cMA-4H-44B">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Be4-ge-1vI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1269" y="2467"/>
         </scene>
     </scenes>
     <resources>
