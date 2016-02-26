@@ -2,4 +2,20 @@
 
 import UIKit
 
-var str = "Hello, playground"
+func double(string: String) -> String
+{
+    var characters = ""
+   
+    for char in string.characters
+    {
+        characters.append(char)
+        characters.append(char)
+    }
+    
+    return characters
+}
+
+double("food")
+
+
+
