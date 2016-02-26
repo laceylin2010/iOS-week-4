@@ -9,10 +9,13 @@
 import UIKit
 import WebKit
 
+typealias WebViewControllerDismiss = () -> ()
+
 class WebViewController: UIViewController, Identity
 {
     
     var owner: Owner?
+   
     
     class func id() -> String
     {
@@ -32,9 +35,15 @@ class WebViewController: UIViewController, Identity
         
     }
     
+    @IBAction func backButton(sender: UIButton)
+    {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     func loadWebView()
     {
-        let webView = WKWebView(frame: self.view.frame)
+        let frame = CGRect(x: 0.0, y: 50.0, width: self.view.frame.width, height: self.view.frame.height)
+        let webView = WKWebView(frame: frame)
         if let htmlUrl = owner?.htmlUrl{
             let url = NSURL(string: htmlUrl)
             let request = NSMutableURLRequest(URL: url!)
