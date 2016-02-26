@@ -189,7 +189,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q1k-FP-PcK">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search Repos" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q1k-FP-PcK">
                                 <rect key="frame" x="47" y="83" width="506" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -232,6 +232,7 @@
                         <segue destination="Jz9-DJ-4AC" kind="relationship" relationship="viewControllers" id="Gga-yo-YnV"/>
                         <segue destination="qyR-pj-ed1" kind="relationship" relationship="viewControllers" id="FFo-yl-fzy"/>
                         <segue destination="QiD-Fo-Vd7" kind="relationship" relationship="viewControllers" id="0i1-LB-JCj"/>
+                        <segue destination="rvh-3x-YBf" kind="relationship" relationship="viewControllers" id="UYP-H3-MLD"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8DX-6D-6Mt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -327,6 +328,103 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="myr-Ca-0nP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1319" y="991"/>
+        </scene>
+        <!--Owner Search View Controller-->
+        <scene sceneID="rf6-SQ-oZK">
+            <objects>
+                <viewController id="4LW-HQ-OkI" customClass="OwnerSearchViewController" customModule="GoGoGithub" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WwS-Nt-kGp"/>
+                        <viewControllerLayoutGuide type="bottom" id="SZ2-pA-YEh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ysj-TL-lRY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search Users" translatesAutoresizingMaskIntoConstraints="NO" id="U9C-yc-FGB">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="4LW-HQ-OkI" id="TgE-OW-ulM"/>
+                                </connections>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="25F-vv-N2T">
+                                <rect key="frame" x="0.0" y="108" width="600" height="443"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="t3R-gB-UzQ">
+                                    <size key="itemSize" width="159" height="139"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OwnerCollectionViewCell" id="3l7-oB-GA2" customClass="OwnerCollectionViewCell" customModule="GoGoGithub" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="159" height="139"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="159" height="139"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="paX-l3-LBo">
+                                                    <rect key="frame" x="0.0" y="0.0" width="159" height="139"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="paX-l3-LBo" secondAttribute="trailing" id="1BK-gh-bDD"/>
+                                            <constraint firstAttribute="bottom" secondItem="paX-l3-LBo" secondAttribute="bottom" id="1K6-TS-EU5"/>
+                                            <constraint firstItem="paX-l3-LBo" firstAttribute="leading" secondItem="3l7-oB-GA2" secondAttribute="leading" id="h5J-wv-4ia"/>
+                                            <constraint firstItem="paX-l3-LBo" firstAttribute="top" secondItem="3l7-oB-GA2" secondAttribute="top" id="tjQ-cr-F8o"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="userImage" destination="paX-l3-LBo" id="xxW-bG-9Au"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="4LW-HQ-OkI" id="G2X-v9-vjo"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="U9C-yc-FGB" secondAttribute="trailing" id="BQS-Xy-t4D"/>
+                            <constraint firstItem="SZ2-pA-YEh" firstAttribute="top" secondItem="25F-vv-N2T" secondAttribute="bottom" id="FJK-fP-MCW"/>
+                            <constraint firstItem="U9C-yc-FGB" firstAttribute="leading" secondItem="ysj-TL-lRY" secondAttribute="leading" id="Mnd-Ws-OTJ"/>
+                            <constraint firstItem="25F-vv-N2T" firstAttribute="leading" secondItem="ysj-TL-lRY" secondAttribute="leading" id="Pga-kR-IkP"/>
+                            <constraint firstItem="U9C-yc-FGB" firstAttribute="top" secondItem="WwS-Nt-kGp" secondAttribute="bottom" id="kaU-Ij-AiZ"/>
+                            <constraint firstItem="25F-vv-N2T" firstAttribute="top" secondItem="U9C-yc-FGB" secondAttribute="bottom" id="vpW-l8-2dk"/>
+                            <constraint firstAttribute="trailing" secondItem="25F-vv-N2T" secondAttribute="trailing" id="xbw-GD-8LK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="tqV-Pd-CNE"/>
+                    <connections>
+                        <outlet property="collectionView" destination="25F-vv-N2T" id="dos-oR-34p"/>
+                        <outlet property="ownerSearchBar" destination="U9C-yc-FGB" id="tYh-az-T10"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tj9-B7-yxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1327" y="1726"/>
+        </scene>
+        <!--Search User-->
+        <scene sceneID="cfK-9F-jRl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rvh-3x-YBf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search User" id="aPa-m1-IOt"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WrF-HE-g6o">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4LW-HQ-OkI" kind="relationship" relationship="rootViewController" id="5aI-lw-d6Z"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B4J-rd-bHS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="533" y="1726"/>
         </scene>
     </scenes>
     <resources>

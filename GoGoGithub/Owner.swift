@@ -12,11 +12,13 @@ class Owner
 {
     let name: String
     let reposUrl: String
+    let ownerImageUrl: String
 
     
-    init(reposUrl: String, name: String)
+    init(reposUrl: String, name: String, ownerImageUrl: String)
     {
         self.reposUrl = reposUrl
         self.name = name
+        self.ownerImageUrl = ownerImageUrl
     }
 }

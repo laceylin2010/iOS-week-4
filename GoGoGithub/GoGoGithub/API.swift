@@ -23,6 +23,10 @@ class API
         let request = NSMutableURLRequest.requestWithAPIRequest(apiRequest)
         
         self.session.dataTaskWithRequest(request) { (data, response, error) -> Void in
+            
+            print(error)
+            print(response)
+            
             if error == nil {
                 if let data = data {
                     do  {
@@ -47,12 +51,15 @@ class API
     
     func getImage(urlString: String, completion: (image: UIImage) -> ())
     {
-        guard let url = NSURL(string: urlString) else { return }
-        guard let data = NSData(contentsOfURL: url) else { return }
-        guard let image = UIImage(data: data) else { return }
         
-        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
-            completion(image: image)
+        NSOperationQueue().addOperationWithBlock { () -> Void in
+            guard let url = NSURL(string: urlString) else { return }
+            guard let data = NSData(contentsOfURL: url) else { return }
+            guard let image = UIImage(data: data) else { return }
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+                completion(image: image)
+            }
         }
     }
     

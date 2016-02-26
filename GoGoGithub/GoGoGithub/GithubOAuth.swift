@@ -49,14 +49,12 @@ class GithubOAuth
     func tokenRequestWithCallbackURL(url: NSURL, options: SaveOptions, completion: GithubOAuthCompletion)
     {
         guard let codeString = url.query else { return }
-        
-        print(codeString)
         guard let requestURL = NSURL(string: "\(kOAuthBaseURLString)/access_token?client_id=\(self.githubClientId)&client_secret=\(self.githubClientSecret)&\(codeString)") else { return }
         
         let request = self.requestWith(requestURL, method: "POST")
         
         NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
-            if let _ = error { print("error...\(error)") }
+            if let _ = error {  }
             if let data = data {
                 do {
                     if let json = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as? [String : AnyObject], token = self.accessTokenFrom(json) {
@@ -88,14 +86,10 @@ class GithubOAuth
         var accessToken: String?
         
         if let token = self.accessTokenFromKeychain() {
-            print(token)
-            
             accessToken = token
         }
         
         if let token = self.accessTokenFromUserDefaults() {
-            print(token)
-            
             accessToken = token
         }
         

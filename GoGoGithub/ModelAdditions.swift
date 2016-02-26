@@ -19,7 +19,8 @@ extension Repository
                 guard let ownerDictionary = eachRepository["owner"] as? [String : AnyObject] else { return }
                 let reposUrl = ownerDictionary["repos_url"] as? String ?? kEmptyString
                 let login = ownerDictionary["login"] as? String ?? kEmptyString
-                let owner = Owner(reposUrl: reposUrl, name: login)
+                let ownerImageUrl = ownerDictionary["avatar_url"] as? String ?? kEmptyString
+                let owner = Owner(reposUrl: reposUrl, name: login, ownerImageUrl: ownerImageUrl)
                 
                 
                 let name = eachRepository["name"] as? String ?? kEmptyString
@@ -44,7 +45,8 @@ extension Repository
                 guard let ownerDictionary = eachRepository["owner"] as? [String : AnyObject] else { return }
                 let reposUrl = ownerDictionary["repos_url"] as? String ?? kEmptyString
                 let login = ownerDictionary["login"] as? String ?? kEmptyString
-                let owner = Owner(reposUrl: reposUrl, name: login)
+                let ownerImageUrl = ownerDictionary["avatar_url"] as? String ?? kEmptyString
+                let owner = Owner(reposUrl: reposUrl, name: login, ownerImageUrl: ownerImageUrl)
                 
                 
                 let name = eachRepository["name"] as? String ?? kEmptyString
@@ -59,6 +61,8 @@ extension Repository
             NSOperationQueue.mainQueue().addOperationWithBlock { completion(success: true, repositories: repositories) }
         }
     }
+    
+    
 }
 
 
@@ -89,5 +93,37 @@ extension User
             
         }
     }
+    
 }
+
+extension Owner
+{
+    class func ownerSearchInfo(results: String, completion:(success: Bool, githubOwners: [Owner]) -> ())
+    {
+        API.shared.enqueue(GETSearchOwner(searchUser: results)) { (success, json) -> () in
+            
+            print(json)
+            
+            var githubOwners = [Owner]()
+            
+            for eachOwner in json {
+                
+                let reposUrl = eachOwner["repos_url"] as? String ?? kEmptyString
+                
+                let login = eachOwner["login"] as? String ?? kEmptyString
+                
+                let ownerImageUrl = eachOwner["avatar_url"] as? String ?? kEmptyString
+                
+                let owner = Owner(reposUrl: reposUrl, name: login, ownerImageUrl: ownerImageUrl)
+                
+                githubOwners.append(owner)
+                
+            }
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock { completion(success: true, githubOwners: githubOwners) }
+        }
+    }
+    
+}
+
 

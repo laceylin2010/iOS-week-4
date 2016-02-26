@@ -14,6 +14,7 @@ class GETSearch: APIRequest
     var headerContentType = MIMEType.ApplicationJSON
     var userSearch: String
     
+    
     init(userSearch: String)
     {
         self.userSearch = userSearch
@@ -34,3 +35,6 @@ class GETSearch: APIRequest
     }
     
 }
+
+
+

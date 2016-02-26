@@ -50,8 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     func checkOAuthStatus()
     {
         do {
-            let token = try GithubOAuth.shared.accessToken()
-            print(token)
+            let _ = try GithubOAuth.shared.accessToken()
         } catch _ { self.presentOAuthViewController() }
     }
     
