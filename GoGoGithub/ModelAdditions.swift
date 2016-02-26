@@ -17,10 +17,10 @@ extension Repository
             
             for eachRepository in json {
                 guard let ownerDictionary = eachRepository["owner"] as? [String : AnyObject] else { return }
-                let reposUrl = ownerDictionary["repos_url"] as? String ?? kEmptyString
+                let htmlUrl = ownerDictionary["html_url"] as? String ?? kEmptyString
                 let login = ownerDictionary["login"] as? String ?? kEmptyString
                 let ownerImageUrl = ownerDictionary["avatar_url"] as? String ?? kEmptyString
-                let owner = Owner(reposUrl: reposUrl, login: login, ownerImageUrl: ownerImageUrl)
+                let owner = Owner(htmlUrl: htmlUrl, login: login, ownerImageUrl: ownerImageUrl)
                 
                 let name = eachRepository["name"] as? String ?? kEmptyString
                 
@@ -42,10 +42,10 @@ extension Repository
             
             for eachRepository in json {
                 guard let ownerDictionary = eachRepository["owner"] as? [String : AnyObject] else { return }
-                let reposUrl = ownerDictionary["repos_url"] as? String ?? kEmptyString
+                let htmlUrl = ownerDictionary["html_url"] as? String ?? kEmptyString
                 let login = ownerDictionary["login"] as? String ?? kEmptyString
                 let ownerImageUrl = ownerDictionary["avatar_url"] as? String ?? kEmptyString
-                let owner = Owner(reposUrl: reposUrl, login: login, ownerImageUrl: ownerImageUrl)
+                let owner = Owner(htmlUrl: htmlUrl, login: login, ownerImageUrl: ownerImageUrl)
                 
                 
                 let name = eachRepository["name"] as? String ?? kEmptyString
@@ -68,10 +68,10 @@ extension Repository
             
             for eachRepository in json {
                 guard let ownerDictionary = eachRepository["owner"] as? [String : AnyObject] else { return }
-                let reposUrl = ownerDictionary["repos_url"] as? String ?? kEmptyString
+                let htmlUrl = ownerDictionary["html_url"] as? String ?? kEmptyString
                 let login = ownerDictionary["login"] as? String ?? kEmptyString
                 let ownerImageUrl = ownerDictionary["avatar_url"] as? String ?? kEmptyString
-                let owner = Owner(reposUrl: reposUrl, login: login, ownerImageUrl: ownerImageUrl)
+                let owner = Owner(htmlUrl: htmlUrl, login: login, ownerImageUrl: ownerImageUrl)
                 
                 
                 let name = eachRepository["name"] as? String ?? kEmptyString
@@ -131,13 +131,13 @@ extension Owner
             
             for eachOwner in json {
                 
-                let reposUrl = eachOwner["repos_url"] as? String ?? kEmptyString
+                let htmlUrl = eachOwner["repos_url"] as? String ?? kEmptyString
                 
                 let login = eachOwner["login"] as? String ?? kEmptyString
                 
                 let ownerImageUrl = eachOwner["avatar_url"] as? String ?? kEmptyString
                 
-                let owner = Owner(reposUrl: reposUrl, login: login, ownerImageUrl: ownerImageUrl)
+                let owner = Owner(htmlUrl: htmlUrl, login: login, ownerImageUrl: ownerImageUrl)
                 
                 githubOwners.append(owner)
                 

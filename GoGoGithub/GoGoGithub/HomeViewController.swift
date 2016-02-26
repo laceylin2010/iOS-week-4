@@ -53,7 +53,7 @@ class HomeViewController: UIViewController, Identity, UITableViewDelegate, UITab
         let cell = tableView.dequeueReusableCellWithIdentifier("repoCell", forIndexPath: indexPath)
         let repoData = self.repoArray[indexPath.row]
         cell.textLabel?.text = repoData.name
-        cell.detailTextLabel?.text = repoData.owner.reposUrl
+        cell.detailTextLabel?.text = repoData.owner.htmlUrl
         
       
         

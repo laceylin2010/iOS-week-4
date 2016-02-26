@@ -11,12 +11,12 @@ import UIKit
 class Owner
 {
     let login: String
-    let reposUrl: String
+    let htmlUrl: String
     let ownerImageUrl: String
 
-    init(reposUrl: String, login: String, ownerImageUrl: String)
+    init(htmlUrl: String, login: String, ownerImageUrl: String)
     {
-        self.reposUrl = reposUrl
+        self.htmlUrl = htmlUrl
         self.login = login
         self.ownerImageUrl = ownerImageUrl
 

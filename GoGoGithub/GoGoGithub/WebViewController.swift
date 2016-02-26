@@ -35,8 +35,8 @@ class WebViewController: UIViewController, Identity
     func loadWebView()
     {
         let webView = WKWebView(frame: self.view.frame)
-        if let reposUrl = owner?.reposUrl{
-            let url = NSURL(string: reposUrl)
+        if let htmlUrl = owner?.htmlUrl{
+            let url = NSURL(string: htmlUrl)
             let request = NSMutableURLRequest(URL: url!)
             
             self.view.addSubview(webView)
