@@ -21,6 +21,7 @@
 		AFC748241C7FE9FC00EF50EC /* UserDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC748231C7FE9FC00EF50EC /* UserDetailCell.swift */; };
 		AFC748261C7FF44400EF50EC /* GETUserRepos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC748251C7FF44400EF50EC /* GETUserRepos.swift */; };
 		AFC748281C7FFB6600EF50EC /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC748271C7FFB6600EF50EC /* WebViewController.swift */; };
+		AFC7482A1C8028E900EF50EC /* CustomAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC748291C8028E900EF50EC /* CustomAnimation.swift */; };
 		AFC9C5471C7CE9E200CDF78F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC9C5461C7CE9E200CDF78F /* HomeViewController.swift */; };
 		AFC9C5491C7CEA0D00CDF78F /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC9C5481C7CEA0D00CDF78F /* Identity.swift */; };
 		AFC9C54F1C7CEF3000CDF78F /* GGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC9C54E1C7CEF3000CDF78F /* GGButton.swift */; };
@@ -66,6 +67,7 @@
 		AFC748231C7FE9FC00EF50EC /* UserDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailCell.swift; sourceTree = "<group>"; };
 		AFC748251C7FF44400EF50EC /* GETUserRepos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GETUserRepos.swift; sourceTree = "<group>"; };
 		AFC748271C7FFB6600EF50EC /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		AFC748291C8028E900EF50EC /* CustomAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnimation.swift; sourceTree = "<group>"; };
 		AFC9C5461C7CE9E200CDF78F /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		AFC9C5481C7CEA0D00CDF78F /* Identity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identity.swift; sourceTree = "<group>"; };
 		AFC9C54E1C7CEF3000CDF78F /* GGButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GGButton.swift; path = ../GGButton.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 			children = (
 				AFC748271C7FFB6600EF50EC /* WebViewController.swift */,
 				AFC748211C7FD2DA00EF50EC /* UserDetailViewController.swift */,
+				AFC748291C8028E900EF50EC /* CustomAnimation.swift */,
 				AFC7481B1C7F9C6500EF50EC /* OwnerSearchViewController.swift */,
 				AF67F0B41C7ECDDE007B5EA5 /* PostViewController.swift */,
 				AF67F0B01C7EC08A007B5EA5 /* SearchBarViewController.swift */,
@@ -329,6 +332,7 @@
 				AF3DD1F91C7E890900E960E2 /* User.swift in Sources */,
 				AFC748281C7FFB6600EF50EC /* WebViewController.swift in Sources */,
 				AF3DD1F71C7E880B00E960E2 /* GETUser.swift in Sources */,
+				AFC7482A1C8028E900EF50EC /* CustomAnimation.swift in Sources */,
 				AFFC2C6C1C7B9DB7003ADE9B /* GithubOAuth.swift in Sources */,
 				AFC9C5471C7CE9E200CDF78F /* HomeViewController.swift in Sources */,
 				AFC9C5511C7CF11C00CDF78F /* Setup.swift in Sources */,

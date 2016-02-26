@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, Identity
+class UserDetailViewController: UIViewController, UITableViewDataSource, UIViewControllerTransitioningDelegate, UITableViewDelegate, Identity
 {
     
     @IBOutlet weak var imageView: UIImageView!
@@ -27,6 +27,10 @@ class UserDetailViewController: UIViewController, UITableViewDataSource, UITable
         }
         
         
+    }
+    @IBAction func userBackButton(sender: UIButton)
+    {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func viewWillAppear(animated: Bool)
@@ -57,6 +61,24 @@ class UserDetailViewController: UIViewController, UITableViewDataSource, UITable
         super.didReceiveMemoryWarning()
 
     }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+
+        if segue.identifier == WebViewController.id() {
+            
+            if let webViewController = segue.destinationViewController as? WebViewController {
+                if let indexPath = self.tableView.indexPathForSelectedRow {
+                    let repository = self.usersRepos [indexPath.row]
+                    webViewController.owner = repository.owner
+                    webViewController.transitioningDelegate = self
+                }
+                
+            }
+        }
+        
+        
+    }
     
     func imageAppear()
     {
@@ -80,31 +102,11 @@ class UserDetailViewController: UIViewController, UITableViewDataSource, UITable
     {
         return self.usersRepos.count
     }
-
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         self.performSegueWithIdentifier("WebViewController", sender: nil)
     }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
-    {
-
-        if segue.identifier == WebViewController.id() {
-            
-            if let webViewController = segue.destinationViewController as? WebViewController {
-                if let indexPath = self.tableView.indexPathForSelectedRow {
-                    let repository = self.usersRepos [indexPath.row]
-                    webViewController.owner = repository.owner
-                }
-                
-            }
-        }
-        
-    }
-
-
-    
-    
-    
 
 
 }

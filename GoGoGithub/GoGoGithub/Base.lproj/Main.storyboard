@@ -473,15 +473,24 @@
                                     <outlet property="delegate" destination="c1v-Y1-sGb" id="pLE-TC-frE"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYK-wD-E4m">
+                                <rect key="frame" x="35" y="38" width="34" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="userBackButton:" destination="c1v-Y1-sGb" eventType="touchUpInside" id="xFa-PW-74O"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="XYK-wD-E4m" firstAttribute="top" secondItem="UWg-Yo-9M4" secondAttribute="bottom" constant="18" id="GLs-Hw-lMo"/>
                             <constraint firstItem="Pb4-3h-wAG" firstAttribute="leading" secondItem="L3n-AJ-2Ts" secondAttribute="leading" id="WKn-al-Zun"/>
                             <constraint firstItem="cye-jf-Xlw" firstAttribute="leading" secondItem="L3n-AJ-2Ts" secondAttribute="leading" constant="8" id="ZZr-MW-3bm"/>
-                            <constraint firstItem="8Q1-ZU-Qhk" firstAttribute="top" secondItem="Pb4-3h-wAG" secondAttribute="bottom" id="crk-FQ-URI"/>
+                            <constraint firstItem="8Q1-ZU-Qhk" firstAttribute="top" secondItem="Pb4-3h-wAG" secondAttribute="bottom" constant="49" id="crk-FQ-URI"/>
                             <constraint firstAttribute="trailing" secondItem="Pb4-3h-wAG" secondAttribute="trailing" id="hKR-Ft-X6q"/>
                             <constraint firstItem="Pb4-3h-wAG" firstAttribute="top" secondItem="cye-jf-Xlw" secondAttribute="bottom" constant="52" id="idJ-0b-bUH"/>
-                            <constraint firstItem="cye-jf-Xlw" firstAttribute="top" secondItem="UWg-Yo-9M4" secondAttribute="bottom" constant="26" id="vhD-pn-mZF"/>
+                            <constraint firstItem="XYK-wD-E4m" firstAttribute="leading" secondItem="L3n-AJ-2Ts" secondAttribute="leading" constant="35" id="ueX-t8-El5"/>
+                            <constraint firstItem="cye-jf-Xlw" firstAttribute="top" secondItem="UWg-Yo-9M4" secondAttribute="bottom" constant="70" id="vhD-pn-mZF"/>
                         </constraints>
                     </view>
                     <connections>
